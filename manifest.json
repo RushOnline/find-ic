@@ -1,0 +1,44 @@
+{
+  "name": "TRD",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Search transistors at alltransistors.com, then trd.nov.ru",
+  "homepage_url": "https://github.com/RushOnline/find-ac",
+  "icons": {
+    "16": "icons/icon16.png",
+    "19": "icons/icon19.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "scripts": [
+      "src/background.js"
+    ],
+    "persistent": false
+  },
+  "options_page": "src/options.html",
+  "browser_action": {
+    "default_icon": "icons/icon19.png",
+    "default_title": "browser action demo",
+    "default_popup": "src/toolbar_popup.html"
+  },
+  "permissions": [
+    "contextMenus",
+    "cookies",
+//    "http://*/*",
+//    "https://*/*"
+    "http://alltransistors.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://alltransistors.com/*"
+      ],
+      "js": [
+        "lib/jquery-2.0.0.js",
+        "src/content.js"
+      ]
+    }
+  ]
+}
